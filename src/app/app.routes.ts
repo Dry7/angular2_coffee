@@ -4,6 +4,7 @@ import {RevenueComponent} from "./components/revenue/revenue.component";
 import {CardsComponent} from "./components/cards/cards.component";
 import {CouponsComponent} from "./components/coupons/coupons.component";
 import {ProductsComponent} from "./components/products/products.component";
+import {MenuTopComponent} from "./components/menu-top/menu-top.component";
 
 const routes: RouterConfig = [
     {
@@ -21,6 +22,10 @@ const routes: RouterConfig = [
     {
         path: 'coupons',
         component: CouponsComponent
+    },
+    {
+        path: 'menu-top',
+        component: MenuTopComponent
     },
     {
         path: 'products',
