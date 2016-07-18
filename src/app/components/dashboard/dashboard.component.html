@@ -1,3 +1,63 @@
 <p>
   dashboard works!
 </p>
+
+<div class="row row-offcanvas row-offcanvas-right">
+  <div class="col-xs-12 col-sm-9">
+    <app-products></app-products>
+
+    <div class="clearfix"></div>
+  </div>
+  <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+    <cart></cart>
+    <form method="GET" class="widget revenue_day">
+      <div class="box box-primary">
+        <div class="box-header"><h3 class="box-title">Revenue for the day</h3></div>
+        <div class="box-body chart-responsive"><div class="chart" id="revenue_day_TiME9S1ETKwNB1yWfeOpixw4Jupd0cFL" style="height: 300px;"></div></div>
+      </div>
+      <input type="hidden" name="RevenueDayWidget[point]" value="" />
+    </form>
+  </div>
+</div>
+
+<div class="modal fade bs-cards-modal-sm" id="cardModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Search card</h4>
+      </div>
+      <div class="modal-body">
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">Card number</span>
+          <input type="text" id="search_card" class="form-control" placeholder="The card number, the name or phone number" aria-describedby="basic-addon1">
+        </div>
+        <table id="search_cards" class="table table-striped table-hover" style="margin-top: 30px;"></table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bs-coupons-modal-sm" id="couponsModal" tabindex="-1" role="dialog" aria-labelledby="myCouponsLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myCouponsLabel">Search coupon</h4>
+      </div>
+      <div class="modal-body">
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon2">Coupon code</span>
+          <input type="text" id="search_coupon" class="form-control" placeholder="Coupon code, name or phone" aria-describedby="basic-addon1">
+        </div>
+        <table id="search_coupons" class="table table-striped table-hover" style="margin-top: 30px;"></table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

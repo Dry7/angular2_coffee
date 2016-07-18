@@ -1,4 +1,27 @@
-<h1>
+<nav id="w0" class="navbar-inverse navbar-fixed-top navbar" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w0-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Coffeecup New York</a>
+    </div>
+    <div id="w0-collapse" class="collapse navbar-collapse">
+      <app-menu-top></app-menu-top>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+
+
+
+<br /><br /><br /><br /><br /><h1>
   {{title}}
 </h1>
 <a [routerLink]="['/dashboard']">Dashboard</a>
@@ -6,4 +29,3 @@
 <a [routerLink]="['/cards']">Cards</a>
 <a [routerLink]="['/coupons']">Coupons</a>
 <a [routerLink]="['/menu-top']">Menu top</a>
-<router-outlet></router-outlet>
