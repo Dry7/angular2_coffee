@@ -1,0 +1,82 @@
+<table id="cart" class="table table-hover cart">
+  <thead>
+  <tr>
+    <td colspan="2" class="name" style="text-align: right;"><button class="btn btn-danger" (click)="clean()">Clean</button></td>
+    <td colspan="2" class="value"><button class="btn btn-success" onClick="addBill();">Calculate</button></td>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <th>Amount</th>
+    <th>Price</th>
+    <th>Total</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let row of cart">
+    <td>{{row.product.name}}</td>
+    <td>
+      <button type="button" class="btn btn-xs btn-danger" (click)="removeProduct(row.product)">-</button>
+      {{row.amount}}
+      <button type="button" class="btn btn-xs btn-primary" (click)="addProduct(row.product)">+</button>
+    </td>
+    <td>{{row.product.price | currency : 'USD' : true : '1.2-2'}}</td>
+    <td>{{row.product.price*row.amount | currency : 'USD' : true : '1.2-2'}}</td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="2" class="name">Amount:</td>
+    <td colspan="2" class="value" id="cart_amount">{{total.amount}} products</td>
+  </tr>
+  <tr>
+    <td colspan="2" class="name">Sum:</td>
+    <td colspan="2" class="value">{{total.price | currency : 'USD' : true : '1.2-2'}}</td>
+  </tr>
+  <tr class="card_name" style="display: none;">
+    <td colspan="1" class="name">Client:</td>
+    <td colspan="3" class="value"></td>
+  </tr>
+  <tr class="card_number" style="display: none;">
+    <td colspan="1" class="name">№ card:</td>
+    <td colspan="3" class="value"></td>
+  </tr>
+  <tr class="card_discount" style="display: none;">
+    <td colspan="1" class="name">Discount:</td>
+    <td colspan="3" class="value"></td>
+  </tr>
+  <tr class="card_phone" style="display: none;">
+    <td colspan="1" class="name">Phone:</td>
+    <td colspan="3" class="value"></td>
+  </tr>
+  <tr class="coupon_number" style="display: none;">
+    <td colspan="1" class="name">Coupon:</td>
+    <td colspan="3" class="value"></td>
+  </tr>
+  <tr class="coupon_type" style="display: none;">
+    <td colspan="1" class="name">Coupon Type:</td>
+    <td colspan="3" class="value"></td>
+  </tr>
+  <tr>
+    <td colspan="2" class="name">
+      <button class="btn btn-danger" (click)="clean();">Clean</button>
+    </td>
+    <td colspan="2" class="value"><button class="btn btn-success" onClick="addBill();">Calculate</button></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: right;">
+      <button id="discount" class="btn btn-danger" onClick="toggleDiscount();" style="width: 100px;">Discount<br />30%<br />disabled</button>
+    </td>
+    <td colspan="2" style="text-align: right;">
+      <button id="card" class="btn btn-danger" data-toggle="modal" data-target=".bs-cards-modal-sm" style="width: 100px;"><br />Card<br /><br /></button>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: right;">
+      <button id="personnel" class="btn btn-danger" onClick="setCategory('Персонал');" style="width: 100px;"><br />Staff<br /><br /></button>
+    </td>
+    <td colspan="2" style="text-align: right;">
+      <button id="coupons" class="btn btn-danger" data-toggle="modal" data-target=".bs-coupons-modal-sm" style="width: 100px;"><br />Coupons<br /><br /></button>
+    </td>
+  </tr>
+  </tfoot>
+</table>

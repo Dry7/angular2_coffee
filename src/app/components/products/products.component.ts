@@ -14,7 +14,7 @@ export class ProductsComponent implements OnInit {
   public category  = null;
 
   constructor(@Inject(ProductService) private ProductService, @Inject(CartService) private CartService) {
-    this.ProductService.products.filter(product => { console.log(product); return true;} ).subscribe(newProducts => this.products = newProducts);
+    this.ProductService.products.subscribe(newProducts => this.products = newProducts);
     this.ProductService.fetchStart();
   }
 
