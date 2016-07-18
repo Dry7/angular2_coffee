@@ -1,0 +1,37 @@
+import {Component, OnInit, Inject} from '@angular/core';
+import {IProduct, ProductService} from "../../services/product.service";
+import {CartService} from "../../services/cart.service";
+
+@Component({
+  moduleId: module.id,
+  selector: 'app-products',
+  templateUrl: 'products.component.html',
+  styleUrls: ['products.component.css']
+})
+export class ProductsComponent implements OnInit {
+
+  private products = [];
+  public category  = null;
+
+  constructor(@Inject(ProductService) private ProductService, @Inject(CartService) private CartService) {
+    this.ProductService.products.filter(product => { console.log(product); return true;} ).subscribe(newProducts => this.products = newProducts);
+    this.ProductService.fetchStart();
+  }
+
+  /**
+   * @brief Add product to cart
+   *
+   * @param product
+   */
+  public addProduct(product: IProduct) {
+    this.CartService.addProduct(product, 1);
+  }
+
+  public inCart(product: IProduct) {
+    return this.CartService.inCart(product);
+  }
+
+  ngOnInit() {
+  }
+
+}

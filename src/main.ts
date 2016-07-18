@@ -4,6 +4,8 @@ import { AppComponent, environment } from './app/';
 import { appRouterProviders } from './app/app.routes'
 import {HTTP_PROVIDERS} from "@angular/http";
 import {ProductService} from "./app/services/product.service";
+import {CartService} from "./app/services/cart.service";
+import {CategoryService} from "./app/services/category.service";
 
 if (environment.production) {
   enableProdMode();
@@ -12,6 +14,8 @@ if (environment.production) {
 bootstrap(AppComponent, [
   appRouterProviders,
   HTTP_PROVIDERS,
-  ProductService
+  CategoryService,
+  ProductService,
+  CartService
 ]);
 

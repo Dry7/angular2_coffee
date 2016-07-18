@@ -1,0 +1,6 @@
+<div class="products" *ngFor="let product of products">
+  <div class="well well-large product" (click)="addProduct(product)" [ngClass]="{'active': inCart(product)}">
+    <h1>{{product.name}}</h1>
+    <p class="price">{{product.price | currency : 'USD' : true : '1.2-2'}}</p>
+  </div>
+</div>
