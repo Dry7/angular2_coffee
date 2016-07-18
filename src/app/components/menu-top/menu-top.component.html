@@ -1,5 +1,5 @@
 <ul id="w1" class="navbar-nav navbar-right nav">
   <li [ngClass]="{'active': isActive('')}"><a href="javascript:void(0);" (click)="setCategory('')">Home</a></li>
   <li *ngFor="let category of categories" [ngClass]="{'active': isActive(category.name)}"><a href="javascript:void(0);" (click)="setCategory(category.name)">{{category.name}}</a></li>
-  <li><a href="/index.php?r=menu%2Findex">Menu</a></li>
+  <li><a [routerLink]="['/revenue']">Menu</a></li>
 </ul>

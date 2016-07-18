@@ -6,9 +6,9 @@ import {MenuTopComponent} from "./components/menu-top/menu-top.component";
 @Component({
   moduleId: module.id,
   selector: 'app-root',
+  directives: [ROUTER_DIRECTIVES, MenuTopComponent],
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.css'],
-  directives: [ROUTER_DIRECTIVES, MenuTopComponent]
+  styleUrls: ['app.component.css']
 })
 
 export class AppComponent {
