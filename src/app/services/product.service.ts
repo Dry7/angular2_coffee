@@ -15,7 +15,7 @@ export class ProductService {
   public products: Observable<IProduct>;
 
   constructor(@Inject(Http) private http: Http) {
-    this.products = this.http.get('http://api.gifts48.ru/products').map(response => { return response.json(); });
+    this.products = this.http.get('http://api.coffee:8181/products').map(response => { return response.json(); });
   }
 
   public fetchStart() {

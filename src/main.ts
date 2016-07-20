@@ -7,6 +7,7 @@ import {ProductService} from "./app/services/product.service";
 import {CartService} from "./app/services/cart.service";
 import {CategoryService} from "./app/services/category.service";
 import {disableDeprecatedForms, provideForms} from "@angular/forms";
+import {CardService} from "./app/services/card.service";
 
 if (environment.production) {
   enableProdMode();
@@ -18,6 +19,7 @@ bootstrap(AppComponent, [
   CategoryService,
   ProductService,
   CartService,
+  CardService,
   disableDeprecatedForms(),
   provideForms()
 ]).catch((err: any) => console.error(err));

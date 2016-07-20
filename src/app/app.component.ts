@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {ROUTER_DIRECTIVES} from "@angular/router";
-import {DashboardComponent} from "./components/dashboard/dashboard.component";
 import {MenuTopComponent} from "./components/menu-top/menu-top.component";
 
 @Component({

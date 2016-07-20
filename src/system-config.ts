@@ -7,10 +7,14 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
+    'angular2-fontawesome': 'vendor/angular2-fontawesome'
 };
 
 /** User packages configuration. */
 const packages: any = {
+    'angular2-fontawesome': {
+        defaultExtension: 'js'
+    }
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -30,6 +34,8 @@ const barrels: string[] = [
 
   // Thirdparty barrels.
   'rxjs',
+  'ng2-bootstrap',
+  'ng2-table',
 
   // App specific barrels.
   'app',
@@ -47,7 +53,13 @@ const barrels: string[] = [
 
 const cliSystemConfigPackages: any = {};
 barrels.forEach((barrelName: string) => {
-  cliSystemConfigPackages[barrelName] = { main: 'index' };
+  if (barrelName == 'ng2-bootstrap') {
+      cliSystemConfigPackages[barrelName] = { main: 'ng2-bootstrap' };
+  } else if (barrelName == 'ng2-table') {
+      cliSystemConfigPackages[barrelName] = { main: 'ng2-table' };
+  } else {
+      cliSystemConfigPackages[barrelName] = {main: 'index'};
+  }
 });
 
 /** Type declaration for ambient System. */
@@ -58,6 +70,9 @@ System.config({
   map: {
     '@angular': 'vendor/@angular',
     'rxjs': 'vendor/rxjs',
+    'ng2-bootstrap': 'vendor/ng2-bootstrap',
+    'ng2-table': 'vendor/ng2-table',
+    'moment': 'vendor/moment/moment.js',
     'main': 'main.js'
   },
   packages: cliSystemConfigPackages

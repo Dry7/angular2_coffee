@@ -16,11 +16,12 @@ export interface ICard
 
 @Injectable()
 export class CardService {
+    private url: string = 'http://api.coffee:8181/';
 
-    public products: Observable<ICart>;
+    public cards: Observable<ICart>;
 
     constructor(@Inject(Http) private http: Http) {
-        this.products = this.http.get('http://api.coffee:8181/cards').map(response => { return response.json(); });
+        this.cards = this.http.get(this.url + 'cards').map(response => { return response.json(); });
     }
 
     public fetchStart() {
