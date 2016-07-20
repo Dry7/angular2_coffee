@@ -6,6 +6,7 @@ import {HTTP_PROVIDERS} from "@angular/http";
 import {ProductService} from "./app/services/product.service";
 import {CartService} from "./app/services/cart.service";
 import {CategoryService} from "./app/services/category.service";
+import {disableDeprecatedForms, provideForms} from "@angular/forms";
 
 if (environment.production) {
   enableProdMode();
@@ -16,6 +17,8 @@ bootstrap(AppComponent, [
   HTTP_PROVIDERS,
   CategoryService,
   ProductService,
-  CartService
-]);
+  CartService,
+  disableDeprecatedForms(),
+  provideForms()
+]).catch((err: any) => console.error(err));
 
