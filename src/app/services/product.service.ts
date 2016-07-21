@@ -1,6 +1,7 @@
 import {Injectable, Inject} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Http} from '@angular/http';
+import {environment} from "../environment";
 
 export interface IProduct
 {
@@ -12,10 +13,12 @@ export interface IProduct
 
 @Injectable()
 export class ProductService {
+  private api: string = environment.api;
+
   public products: Observable<IProduct>;
 
   constructor(@Inject(Http) private http: Http) {
-    this.products = this.http.get('http://api.coffee:8181/products').map(response => { return response.json(); });
+    this.products = this.http.get(this.api + 'products').map(response => { return response.json(); });
   }
 
   public fetchStart() {

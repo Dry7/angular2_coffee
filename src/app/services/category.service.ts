@@ -2,6 +2,7 @@ import {Injectable, Inject} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Http} from "@angular/http";
 import 'rxjs/Rx';
+import {environment} from "../environment";
 
 export interface ICategory
 {
@@ -10,6 +11,8 @@ export interface ICategory
 
 @Injectable()
 export class CategoryService {
+  private api: string = environment.api;
+
   public categories: Observable<ICategory>;
   public category: string; //Выбранная категория
   private _categoriesObserver: any;
@@ -18,7 +21,7 @@ export class CategoryService {
   constructor(@Inject(Http) private http: Http) {
     this.setDefaultCategories();
     this.category   = "";
-    this.categories = this.http.get('http://api.gifts48.ru/categories').map(response => response.json());
+    this.categories = this.http.get(this.api + 'categories').map(response => response.json());
   }
 
   public fetchStart() {
