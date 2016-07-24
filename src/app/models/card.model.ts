@@ -1,3 +1,5 @@
+import {ICoupon} from "./coupon.model";
+
 export interface ICard
 {
     id:                 number;
@@ -15,6 +17,8 @@ export interface ICard
     total_200ml?:       number;
     total_cold_400ml?:  number;
     total_hot_400ml?:   number;
+
+    coupons?:           ICoupon[];
 }
 
 class Card implements ICard
@@ -34,4 +38,5 @@ class Card implements ICard
     total_200ml:       number;
     total_cold_400ml:  number;
     total_hot_400ml:   number;
+    coupons:           ICoupon[];
 }
