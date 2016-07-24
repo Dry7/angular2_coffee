@@ -19,10 +19,13 @@
               </tr>
               </thead>
               <tbody>
+              <tr *ngIf="rows.length == 0">
+                  <td colspan="5">Loading</td>
+              </tr>
               <tr *ngFor="let row of rows">
                   <td>{{row.id}}</td>
                   <td>{{row.discount}}%</td>
-                  <td>{{row|fullName}}</td>
+                  <td><a [routerLink]="['/cards', row.id]">{{row|fullName}}</a></td>
                   <td>{{row.email}}</td>
                   <td>{{row.phone|phone}}</td>
               </tr>

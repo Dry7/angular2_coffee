@@ -7,6 +7,7 @@ import {CardService} from "../../services/card.service";
 import {PhonePipe} from "../../pipes/phone.pipe";
 import {FullNamePipe} from "../../pipes/full-name.pipe";
 import {MenuLeftComponent} from "../menu-left/menu-left.component";
+import {ROUTER_DIRECTIVES} from "@angular/router";
 
 @Component({
     selector: 'table-demo',
@@ -14,10 +15,11 @@ import {MenuLeftComponent} from "../menu-left/menu-left.component";
     directives: [
         NG_TABLE_DIRECTIVES,
         PAGINATION_DIRECTIVES,
-        NgClass,
-        NgIf,
+        ROUTER_DIRECTIVES,
         CORE_DIRECTIVES,
         FORM_DIRECTIVES,
+        NgClass,
+        NgIf,
         MenuLeftComponent
     ],
     pipes: [PhonePipe, FullNamePipe]
