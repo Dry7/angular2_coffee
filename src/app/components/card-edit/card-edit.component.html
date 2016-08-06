@@ -1,0 +1,168 @@
+<div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+        <app-menu-left></app-menu-left>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="cards-index">
+
+            <div *ngIf="!item">Loading...</div>
+
+            <div class="cards-form" *ngIf="item">
+
+                <h1>Cards</h1>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group field-card-discount required">
+                            <label class="control-label" for="card-discount">Discount</label>
+                            <input type="text" id="card-discount" class="form-control" [(ngModel)]="item.discount" maxlength="3" required>
+                            <div class="help-block"></div>
+                        </div>
+                        <div class="form-group field-card-surname required">
+                            <label class="control-label" for="card-surname">Surname</label>
+                            <input type="text" id="card-surname" class="form-control" [(ngModel)]="item.surname" maxlength="255">
+
+                            <div class="help-block"></div>
+                        </div>
+                        <div class="form-group field-card-name required">
+                            <label class="control-label" for="card-name">Name</label>
+                            <input type="text" id="card-name" class="form-control" [(ngModel)]="item.name" maxlength="255">
+
+                            <div class="help-block"></div>
+                        </div>
+                        <div class="form-group field-card-patronymic">
+                            <label class="control-label" for="card-patronymic">Patronymic</label>
+                            <input type="text" id="card-patronymic" class="form-control" [(ngModel)]="item.patronymic" maxlength="255">
+
+                            <div class="help-block"></div>
+                        </div>
+                        <div class="form-group field-card-email">
+                            <label class="control-label" for="card-email">Email</label>
+                            <input type="text" id="card-email" class="form-control" name="Card[email]" value="{{item.email}}" maxlength="255">
+
+                            <div class="help-block"></div>
+                        </div>
+                        <div class="form-group field-card-phone">
+                            <label class="control-label" for="card-phone">Phone</label>
+                            <input type="text" id="card-phone" class="form-control" [(ngModel)]="item.phone" maxlength="18">
+
+                            <div class="help-block"></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" style="width: 100%;">&nbsp;</label>
+                            <button type="button" class="btn btn-primary" (click)="save()">Update</button>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group field-card-total">
+                            <label class="control-label" for="card-total">Total sum</label>
+                            <input type="text" id="card-total" class="form-control" [(ngModel)]="item.total" maxlength="30">
+
+                            <div class="help-block"></div>
+                        </div>
+                        <div class="form-group field-card-total_cost">
+                            <label class="control-label" for="card-total_cost">Sum cost</label>
+                            <input type="text" id="card-total_cost" class="form-control" [(ngModel)]="item.total_cost" maxlength="30">
+
+                            <div class="help-block"></div>
+                        </div>
+                        <div class="form-group field-card-total_discount">
+                            <label class="control-label" for="card-total_discount">Sum discount</label>
+                            <input type="text" id="card-total_discount" class="form-control" [(ngModel)]="item.total_discount" maxlength="30">
+
+                            <div class="help-block"></div>
+                        </div>
+                        <div class="form-group field-card-total_200ml">
+                            <label class="control-label" for="card-total_200ml">Total - 200 ml</label>
+                            <input type="text" id="card-total_200ml" class="form-control" [(ngModel)]="item.total_200ml" maxlength="11">
+
+                            <div class="help-block"></div>
+                        </div>
+                        <div class="form-group field-card-total_cold_400ml">
+                            <label class="control-label" for="card-total_cold_400ml">Total - 400 ml cold</label>
+                            <input type="text" id="card-total_cold_400ml" class="form-control" [(ngModel)]="item.total_cold_400ml" maxlength="11">
+
+                            <div class="help-block"></div>
+                        </div>
+                        <div class="form-group field-card-total_hot_400ml">
+                            <label class="control-label" for="card-total_hot_400ml">Total - 400 ml hot</label>
+                            <input type="text" id="card-total_hot_400ml" class="form-control" [(ngModel)]="item.total_hot_400ml" maxlength="11">
+
+                            <div class="help-block"></div>
+                        </div>
+                        <div class="form-group field-birthday">
+                            <label class="control-label" for="birthday">Birthday</label>
+                            <input type="text" id="birthday" class="form-control" [(ngModel)]="item.birthday">
+
+                            <div class="help-block"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <span *ngIf="item.coupons.length > 0">
+                    <h3>Coupons</h3>
+                        <table class="table table-striped table-bordered dataTable" role="grid" style="width: 100%;">
+                          <thead>
+                            <tr role="row">
+                              <th *ngFor="let column of columns" [ngTableSorting]="config" [column]="column" (sortChanged)="onChangeTableSort($event)">
+                                {{column.title}}
+                                <i *ngIf="config && column.sort" class="pull-right fa" [ngClass]="{'fa-chevron-down': column.sort === 'desc', 'fa-chevron-up': column.sort === 'asc'}"></i>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngIf="rows.length == 0">
+                              <td colspan="5">Loading</td>
+                            </tr>
+                            <tr *ngFor="let row of rows">
+                              <td>{{row.name}}</td>
+                              <td>{{row.phone|phone}}</td>
+                              <td>{{row.coupon}}</td>
+                              <td>{{row.date|date}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <pagination
+                            *ngIf="length > itemsPerPage"
+                            [totalItems]="length"
+                            [(ngModel)]="page"
+                            [maxSize]="maxSize"
+                            class="pagination-sm"
+                            [boundaryLinks]="true"
+                            [rotate]="false"
+                            [itemsPerPage]="itemsPerPage"
+                            (pageChanged)="onChangeTable(config, $event)"
+                            (numPages)="numPages = $event"
+                        ></pagination>
+                    </span>
+
+                    <h3>Add coupon</h3>
+                    <table class="table" style="width: 100%;">
+                        <tbody>
+                        <tr>
+                            <td style="width: 50%;"><div class="form-group field-coupon_name_0">
+                                <label class="control-label">Receiver name
+                                    <input type="text" class="form-control" maxlength="11">
+                                </label>
+
+                                <div class="help-block"></div>
+                            </div></td>
+                            <td style="width: 50%;"><div class="form-group field-coupon-phone">
+                                <label class="control-label">Телефон получателя
+                                    <input type="text" class="form-control" maxlength="18" data-inputmask-removemaskonsubmit="true" data-plugin-inputmask="inputmask_8b2a4bfb">
+                                </label>
+
+                                <div class="help-block"></div>
+                            </div></td>
+                        </tr>
+                        </tbody></table>
+
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" (click)="addCoupon()">Update</button>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>

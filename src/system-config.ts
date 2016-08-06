@@ -48,6 +48,7 @@ const barrels: string[] = [
   'app/menu-top',
   'app/cart',
   'app/menu-left',
+  'app/card-edit',
   /** @cli-barrel */
 ];
 

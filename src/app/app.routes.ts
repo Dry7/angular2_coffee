@@ -5,6 +5,7 @@ import {CardsComponent} from "./components/cards/cards.component";
 import {CouponsComponent} from "./components/coupons/coupons.component";
 import {ProductsComponent} from "./components/products/products.component";
 import {MenuTopComponent} from "./components/menu-top/menu-top.component";
+import {CardEditComponent} from "./components/card-edit/card-edit.component";
 
 const routes: RouterConfig = [
     {
@@ -18,6 +19,10 @@ const routes: RouterConfig = [
     {
         path: 'cards',
         component: CardsComponent
+    },
+    {
+        path: 'cards/:id',
+        component: CardEditComponent
     },
     {
         path: 'coupons',

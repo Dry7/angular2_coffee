@@ -21,7 +21,7 @@ export interface ICard
     coupons?:           ICoupon[];
 }
 
-class Card implements ICard
+export class Card implements ICard
 {
     id:                number;
     discount:          number;
